@@ -26,6 +26,9 @@ const theme = createMuiTheme({
       contrastText: '#fff'
     }
   },
+    typography: {
+      useNextVariants: true,
+    },
 })
 
 function App() {
@@ -35,11 +38,11 @@ function App() {
         <Router>
           <Navbar />
           <div className="container">
-              <switch>
+              <Switch>
                 <Route exact path="/" component={home}/>
                 <Route exact path="/login" component={login}/>
                 <Route exact path="/signup" component={signup}/> 
-              </switch> 
+              </Switch> 
           </div>
         </Router>
       </div>
