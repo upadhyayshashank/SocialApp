@@ -18,7 +18,7 @@ const styles = {
 		textAlign: "center",
 	},
 	image: {
-		margin: "20px auto",
+		margin: "15px auto",
 	},
 	pageTile: {
 		margin: "15px auto",
@@ -28,25 +28,27 @@ const styles = {
 	},
 	button: {
 		marginTop: 20,
-        marginBottom: 20,
-        position: "relative"
+		marginBottom: 20,
+		position: "relative",
 	},
 	customError: {
 		color: "red",
 		fontSize: "0.9rem",
-    },
-    progress: {
-        position: "absolute"
-    }
+	},
+	progress: {
+		position: "absolute",
+	},
 };
 
 class login extends Component {
 	constructor() {
-		super();
+        super();
+        //this.handleChange = this.handleChange.bind(this);
+        //this.handleSubmit = this.handleSubmit.bind(this);
 		this.state = {
 			email: "",
 			password: "",
-			errors: {},
+            errors: {}
 		};
 	}
 	handleSubmit = (event) => {
@@ -61,16 +63,17 @@ class login extends Component {
 		axios
 			.post("/login", userData)
 			.then((res) => {
-				console.log(res.data);
+                console.log(res.data);
+                localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
 				this.setState({
-					loading: false,
+				loading: false,
 				});
 				this.props.history.push("/");
 			})
 			.catch((err) => {
 				this.setState({
-					errors: err.response.data,
-					loading: false,
+				errors: err.response.data,
+				loading: false,
 				});
 			});
 	};
@@ -130,9 +133,8 @@ class login extends Component {
 							type='submit'
 							variant='contained'
 							color='primary'
-                            className={classes.button}
-                            disabled={loading}
-                            >
+							className={classes.button}
+							disabled={loading}>
 							LOGIN
 							{loading && (
 								<CircularProgress size={30} className={classes.progress} />
