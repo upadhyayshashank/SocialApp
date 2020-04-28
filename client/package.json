@@ -42,5 +42,9 @@
   "devDependencies": {
     "prettier": "2.0.4"
   },
-  "proxy": "https://us-central1-socialapp-98dd7.cloudfunctions.net/api"
+  "proxy": "https://us-central1-socialapp-98dd7.cloudfunctions.net/api",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
