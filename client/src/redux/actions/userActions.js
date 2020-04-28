@@ -1,8 +1,8 @@
 /** @format */
 
-import { SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, SET_UNAUTHENTICATED } from "../types";
+import { SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, SET_UNAUTHENTICATED, LOADING_USER } from "../types";
 import axios from "axios";
-
+ 
 export const loginUser = (userData, history) => (dispatch) => {
 	dispatch({ type: LOADING_UI });
 	axios
@@ -49,7 +49,7 @@ export const logoutUser = () => (dispatch) => {
 
 
 export const getUserData = () => (dispatch) => {
-	//dispatch({ type: LOADING_USER });
+	dispatch({ type: LOADING_USER });
 	axios
 		.get("/user")
 		.then((res) => {
