@@ -8,7 +8,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import PropTypes from 'prop-types';
 import MyButton from '../util/MyButton'; // ../../util
 import DeleteScream from './DeleteScream';
-//import ScreamDialog from './ScreamDialog';
+import ScreamDialog from './ScreamDialog';
 import LikeButton from './LikeButton';
 // Material UI
 import Card from "@material-ui/core/Card";
@@ -25,10 +25,15 @@ const styles = {
 	card: {
 		display: "flex",
         marginBottom: 10,
-        position: 'relative'
+		position: 'relative',
+		padding: '1%',
 	},
 	image: {
-		minWidth: 150,
+		minWidth: 160,
+		height: 160,
+		//borderRadius: '5%',
+		//marginLeft:10
+   		//objectFit: 'cover'
 	},
 	content: {
 		padding: 10,
@@ -87,11 +92,11 @@ class Scream extends Component {
                         <ChatIcon color="primary" />
                     </MyButton>
                     <span>{commentCount} comments</span>
-                    {/* <ScreamDialog
+                    <ScreamDialog
                         screamId={screamId}
                         userHandle={userHandle}
                         openDialog={this.props.openDialog}
-                    />  */}
+                    /> 
 				</CardContent>
 			</Card>
 		);
@@ -102,7 +107,7 @@ Scream.propTypes = {
     user: PropTypes.object.isRequired,
     scream: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired,
-    //openDialog: PropTypes.bool
+    openDialog: PropTypes.bool
   };
   
   const mapStateToProps = (state) => ({

@@ -21,7 +21,6 @@ const styles = (theme) => ({
     TextField: {
 		margin: "10px auto",
 	},
-	// ...theme,
 	button: {
 	  float: 'right'
 	}

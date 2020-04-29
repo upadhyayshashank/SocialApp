@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
-import MyButton from '../../util/MyButton'; 
+import MyButton from '../util/MyButton'; //../../util
 import LikeButton from './LikeButton';
-import Comments from './Comments';
-import CommentForm from './CommentForm';
-import dayjs from 'dayjs';
+// import Comments from './Comments';
+// import CommentForm from './CommentForm';
+import dayjs from 'dayjs'; 
 import { Link } from 'react-router-dom';
 // MUI Stuff
 import Dialog from '@material-ui/core/Dialog';
@@ -19,10 +19,9 @@ import UnfoldMore from '@material-ui/icons/UnfoldMore';
 import ChatIcon from '@material-ui/icons/Chat';
 // Redux stuff
 import { connect } from 'react-redux';
-import { getScream, clearErrors } from '../../redux/actions/dataActions';
+import { getScream, clearErrors } from '../redux/actions/dataActions'; //../../redux
 
 const styles = (theme) => ({
-  ...theme,
   profileImage: {
     maxWidth: 200,
     height: 200,
@@ -95,7 +94,7 @@ class ScreamDialog extends Component {
 
     const dialogMarkup = loading ? (
       <div className={classes.spinnerDiv}>
-        <CircularProgress size={200} thickness={2} />
+        <CircularProgress size={100} thickness={2} />
       </div>
     ) : (
       <Grid container spacing={16}>
@@ -124,9 +123,9 @@ class ScreamDialog extends Component {
           </MyButton>
           <span>{commentCount} comments</span>
         </Grid>
-        <hr className={classes.visibleSeparator} />
+        {/* <hr className={classes.visibleSeparator} />
         <CommentForm screamId={screamId} />
-        <Comments comments={comments} />
+        <Comments comments={comments} /> */}
       </Grid>
     );
     return (
