@@ -6,11 +6,7 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import EditDetails from './EditDetails.js';
 import MyButton from '../../util/MyButton'; //../../util to do
-<<<<<<< HEAD:client/src/components/profile/Profile.js
 import ProfileSkeleton from '../../util/ProfileSkeleton';
-=======
-// import ProfileSkeleton from '../../util/ProfileSkeleton';
->>>>>>> a815ad6b8830adfb047a0b95e20cf7f63053bcac:client/src/components/Profile.js
 //Material UI
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";

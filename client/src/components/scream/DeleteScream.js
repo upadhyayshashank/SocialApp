@@ -19,6 +19,9 @@ const styles = {
     left: '90%',
     top: '6%',
     color: 'red',
+  },
+  red: {
+    color: 'red'
   }
 };
 
@@ -58,7 +61,7 @@ class DeleteScream extends Component {
             Are you sure you want to delete this scream ?
           </DialogTitle>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleClose} className={classes.red}>
               Cancel
             </Button>
             <Button onClick={this.deleteScream} color="secondary">

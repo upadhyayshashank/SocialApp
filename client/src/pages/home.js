@@ -6,10 +6,8 @@ import PropTypes from 'prop-types';
 
 import Scream from "../components/scream/Scream";
 import Profile from "../components/profile/Profile";
-<<<<<<< HEAD
 import ScreamSkeleton from "../util/ScreamSkeleton";
-=======
->>>>>>> a815ad6b8830adfb047a0b95e20cf7f63053bcac
+
 
 import { connect } from 'react-redux';
 import { getScreams } from '../redux/actions/dataActions';
