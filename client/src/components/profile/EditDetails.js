@@ -18,12 +18,15 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import EditIcon from '@material-ui/icons/Edit';
 
 const styles = (theme) => ({
-    TextField: {
+    textField: {
 		margin: "10px auto",
 	},
 	button: {
 	  float: 'right'
-	}
+  },
+  cancel: {
+    color: "red"
+  }
 });
 
 class EditDetails extends Component {
@@ -65,12 +68,14 @@ class EditDetails extends Component {
         this.props.editUserDetails(userDetails);
         this.handleClose();
       };
+      
 	render() {
+    const { classes} = this.props;
 		return (<Fragment>
             <MyButton
               tip="Edit Details"
               onClick={this.handleOpen}
-              //btnClassName={classes.button}
+              btnClassName={classes.button}
             >
               <EditIcon color="primary" />
             </MyButton>
@@ -118,7 +123,7 @@ class EditDetails extends Component {
                 </form>
               </DialogContent>
               <DialogActions>
-                <Button onClick={this.handleClose} color="primary">
+                <Button onClick={this.handleClose} className={classes.cancel}>
                   Cancel
                 </Button>
                 <Button onClick={this.handleSubmit} color="primary">

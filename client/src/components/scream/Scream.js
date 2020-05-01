@@ -105,7 +105,7 @@ class Scream extends Component {
 
 Scream.propTypes = { 
     user: PropTypes.object.isRequired,
-    scream: PropTypes.object.isRequired,
+    screams: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired,
     openDialog: PropTypes.bool
   };

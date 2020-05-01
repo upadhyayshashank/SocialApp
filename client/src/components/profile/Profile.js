@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import EditDetails from './EditDetails.js';
 import MyButton from '../../util/MyButton'; //../../util to do
-// import ProfileSkeleton from '../../util/ProfileSkeleton';
+import ProfileSkeleton from '../../util/ProfileSkeleton';
 //Material UI
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -26,6 +26,9 @@ import { logoutUser, uploadImage } from '../../redux/actions/userActions';//../.
 const styles = (theme) => ({
 	paper: {
 		padding: 20,
+	},
+	red: {
+		color: "red"
 	},
 	profile: {
 		"& .image-wrapper": {
@@ -147,7 +150,7 @@ class Profile extends Component {
 							<span>Joined {dayjs(createdAt).format("MMM YYYY")}</span>
 						</div>
 						<MyButton tip='Logout' onClick={this.handleLogout}>
-							<KeyboardReturn color='primary' />
+							<KeyboardReturn className={classes.red} />
 						</MyButton>
 						<EditDetails />
 					</div>
@@ -176,7 +179,7 @@ class Profile extends Component {
 				</Paper>
 			)
 		) : (
-			<p>loading</p>//<ProfileSkeleton />
+			<ProfileSkeleton />
 		);
 
 		return profileMarkup;
