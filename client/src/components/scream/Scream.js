@@ -39,6 +39,9 @@ const styles = {
 		
 		objectFit: "cover",
 	},
+	grey: {
+		color: 'grey'
+	}
 };
 
 class Scream extends Component {
@@ -82,7 +85,7 @@ class Scream extends Component {
 						{userHandle}
 					</Typography>
                     {deleteButton}
-					<Typography variant='body2' color='textSecondary '>
+					<Typography variant='body2' className={classes.grey}>
 						{dayjs(createdAt).fromNow()}
 					</Typography>
 					<Typography variant='body1'>{body}</Typography>
