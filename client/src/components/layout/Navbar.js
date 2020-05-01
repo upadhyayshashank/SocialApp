@@ -10,15 +10,28 @@ import PostScream from '../scream/PostScream';
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
+import withStyles from "@material-ui/core/styles/withStyles";
 //Icons
 import HomeIcon from '@material-ui/icons/Home';
 import Notifications from '@material-ui/icons/Notifications';
 
+const styles = {
+	appTitle: {
+		margin: 0,
+		position: 'absolute',
+		top: '30%',
+		left: '5%',
+		cursor: 'pointer',
+		fontSize: 'large'
+		
+	}
+};
+
 class Navbar extends Component {
 	render() {
-		const { authenticated } = this.props;
+		const { authenticated, classes } = this.props;
 		return (
-			<AppBar>
+			<AppBar><h2 className={classes.appTitle}>SOCIAL APP</h2>
 				<Toolbar className='nav-container'>
 					{authenticated ? (
 						<Fragment>
@@ -52,11 +65,12 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-	authenticated: PropTypes.bool.isRequired
+	authenticated: PropTypes.bool.isRequired,
+	classes: PropTypes.object.isRequired
   };
   
   const mapStateToProps = (state) => ({
 	authenticated: state.user.authenticated
   });
   
-  export default connect(mapStateToProps)(Navbar);
+  export default connect(mapStateToProps)(withStyles(styles)(Navbar));

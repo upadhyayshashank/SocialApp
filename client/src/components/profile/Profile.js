@@ -30,6 +30,9 @@ const styles = (theme) => ({
 	red: {
 		color: "red"
 	},
+	bRed: {
+		background: '#90be6d'
+	},
 	profile: {
 		"& .image-wrapper": {
 			textAlign: "center",
@@ -171,6 +174,7 @@ class Profile extends Component {
 						<Button
 							variant='contained'
 							color='secondary'
+							className={classes.bRed}
 							component={Link}
 							to='/signup'>
 							Signup

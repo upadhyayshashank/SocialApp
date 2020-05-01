@@ -41,6 +41,9 @@ const styles = {
 	progress: {
 		position: "absolute",
 	},
+	bRed: {
+		background: '#90be6d'
+	}
 };
 
 class signup extends Component {
@@ -158,7 +161,7 @@ class signup extends Component {
 							className={classes.button}
 							disabled={loading}>
 							Signup
-							{loading && <CircularProgress className={classes.progress} />}
+							{loading && <CircularProgress size={30} className={classes.progress} />}
 						</Button>
 						<br />
 						<small>
