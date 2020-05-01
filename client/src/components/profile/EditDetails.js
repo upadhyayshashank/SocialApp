@@ -3,10 +3,10 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
-import MyButton from '../util/MyButton';//../../util to do
+import MyButton from '../../util/MyButton';//../../util to do
 // Redux stuff
 import { connect } from "react-redux";
-import { editUserDetails } from "../redux/actions/userActions"; //../../redux to do
+import { editUserDetails } from "../../redux/actions/userActions"; //../../redux to do
 // MaterialUI Stuff
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -21,7 +21,6 @@ const styles = (theme) => ({
     TextField: {
 		margin: "10px auto",
 	},
-	// ...theme,
 	button: {
 	  float: 'right'
 	}

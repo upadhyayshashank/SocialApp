@@ -2,17 +2,17 @@
 
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
-import withStyles from "@material-ui/core/styles/withStyles";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import EditDetails from './EditDetails.js';
-import MyButton from '../util/MyButton'; //../../util to do
+import MyButton from '../../util/MyButton'; //../../util to do
 // import ProfileSkeleton from '../../util/ProfileSkeleton';
 //Material UI
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import MuiLink from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
+import withStyles from "@material-ui/core/styles/withStyles";
 // Icons
 import LocationOn from "@material-ui/icons/LocationOn";
 import LinkIcon from "@material-ui/icons/Link";
@@ -21,7 +21,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
 //Redux
 import { connect } from "react-redux";
-import { logoutUser, uploadImage } from '../redux/actions/userActions';//../../redux to do
+import { logoutUser, uploadImage } from '../../redux/actions/userActions';//../../redux to do
 
 const styles = (theme) => ({
 	paper: {

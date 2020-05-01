@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
-import MyButton from '../../util/MyButton'; 
+import MyButton from '../../util/MyButton'; //../../util
 import LikeButton from './LikeButton';
 import Comments from './Comments';
 import CommentForm from './CommentForm';
-import dayjs from 'dayjs';
+import dayjs from 'dayjs'; 
 import { Link } from 'react-router-dom';
 // MUI Stuff
-import Dialog from '@material-ui/core/Dialog';
+import Dialog from '@material-ui/core/Dialog'; 
 import DialogContent from '@material-ui/core/DialogContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
@@ -19,10 +19,9 @@ import UnfoldMore from '@material-ui/icons/UnfoldMore';
 import ChatIcon from '@material-ui/icons/Chat';
 // Redux stuff
 import { connect } from 'react-redux';
-import { getScream, clearErrors } from '../../redux/actions/dataActions';
+import { getScream, clearErrors } from '../../redux/actions/dataActions'; //../../redux
 
 const styles = (theme) => ({
-  ...theme,
   profileImage: {
     maxWidth: 200,
     height: 200,
@@ -44,6 +43,15 @@ const styles = (theme) => ({
     textAlign: 'center',
     marginTop: 50,
     marginBottom: 50
+  },
+  invisibleSeparator: {
+    border: 'none',
+    margin: 4
+  },
+  visibleSeparator: {
+    width: '100%',
+    borderBottom: '1px solid rgba(0,0,0,0.1)',
+    marginBottom: 20
   }
 });
 
@@ -95,7 +103,7 @@ class ScreamDialog extends Component {
 
     const dialogMarkup = loading ? (
       <div className={classes.spinnerDiv}>
-        <CircularProgress size={200} thickness={2} />
+        <CircularProgress size={100} thickness={2} />
       </div>
     ) : (
       <Grid container spacing={16}>
