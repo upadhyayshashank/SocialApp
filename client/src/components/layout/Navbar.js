@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MyButton from '../../util/MyButton'; // ../../util
 import PostScream from '../scream/PostScream';
+import Notifications from './Notifications';
 // Material UI
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -13,7 +14,7 @@ import Button from "@material-ui/core/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 //Icons
 import HomeIcon from '@material-ui/icons/Home';
-import Notifications from '@material-ui/icons/Notifications';
+
 
 const styles = {
 	appTitle: {
@@ -41,9 +42,7 @@ class Navbar extends Component {
 							<HomeIcon />
 						  </MyButton>
 						</Link>
-						<MyButton tip="Notifications">
 							<Notifications/>
-						  </MyButton>
 					  	</Fragment>
 					) : (
 					<Fragment>
