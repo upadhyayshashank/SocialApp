@@ -3,6 +3,8 @@ const {db} = require('../util/admin');
 exports.getAllScreams = (req, res) => {
     db.collection('screams')
     .orderBy('createdAt', 'desc')
+    .startAfter(req.params.startAt)
+    .limit(parseInt(req.params.limit))
     .get()
     .then((data) => {
         let screams = [];

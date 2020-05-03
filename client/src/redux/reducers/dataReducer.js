@@ -8,7 +8,10 @@ import {
     LOADING_DATA,
 	DELETE_SCREAM,
 	POST_SCREAM,
-	SUBMIT_COMMENT   
+	SUBMIT_COMMENT,
+	SET_SCREAMS_FOR_USER,
+	CLEAR_SCREAMS,
+	//CLEAR_ERRORS
 } from "../types";
 
 const initialState = {
@@ -24,12 +27,23 @@ export default function (state = initialState, action) {
 				...state,
 				loading: true,
 			};
+		case CLEAR_SCREAMS:
+			return {
+				...state,
+				screams: []
+			}
 		case SET_SCREAMS:
 			return {
 				...state,
-				screams: action.payload,
+				screams: state.screams.concat(action.payload),
 				loading: false,
 			};
+		case SET_SCREAMS_FOR_USER:
+				return {
+					...state,
+					screams: action.payload,
+					loading: false
+				}
 		  case SET_SCREAM:
 		    return {
 		      ...state,
@@ -44,14 +58,15 @@ export default function (state = initialState, action) {
 			if (state.scream.screamId === action.payload.screamId) {
 				state.scream = action.payload;
 			}
+			console.log(state.scream, state.screams)
 			return {
 				...state,
 			};
 		   case DELETE_SCREAM:
-		     index = state.screams.findIndex(
+		     let deleteIndex = state.screams.findIndex(
 		       (scream) => scream.screamId === action.payload
 		     );
-		     state.screams.splice(index, 1);
+		     state.screams.splice(deleteIndex, 1);
 		     return {
 		       ...state 
 		   };

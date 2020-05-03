@@ -11,7 +11,7 @@ const { signup, login, uploadImage, addUserDetails, getAuthenticatedUser, getUse
  
 
 //Screams routes
-app.get('/screams', getAllScreams);
+app.get('/screams/:startAt/:limit', getAllScreams);
 app.post('/screams',FBAuth, postOneScream);
 app.get('/scream/:screamId', getScream);
 app.delete('/scream/:screamId', FBAuth, deleteScream);

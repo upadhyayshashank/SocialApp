@@ -7,14 +7,23 @@ import PropTypes from 'prop-types';
 import Scream from "../components/scream/Scream";
 import Profile from "../components/profile/Profile";
 import ScreamSkeleton from "../util/ScreamSkeleton";
-
+import Button from "@material-ui/core/Button";
 
 import { connect } from 'react-redux';
+import store from '../redux/store'
 import { getScreams } from '../redux/actions/dataActions';
 
 class home extends Component {
 	componentDidMount() {
-		this.props.getScreams();
+		const startAt = (new Date()).toISOString()
+  		const limit = 5
+		this.props.getScreams(startAt, limit, true);
+	}
+
+	loadMoreScreams = () => {
+		let startAt = store.getState().data.screams[store.getState().data.screams.length - 1].createdAt
+		let limit = 5
+		store.dispatch(getScreams(startAt, limit))
 	}
 
 	render() {
@@ -32,6 +41,7 @@ class home extends Component {
 			<Grid container spacing={4}>
 				<Grid item sm={8} xs={12}>
 					{recentScreamsMarkup}
+					<Button color="primary" onClick={() => this.loadMoreScreams()}>Load more screams</Button>
 				</Grid>
 				<Grid item sm={4} xs={12}>
 					<Profile/>
