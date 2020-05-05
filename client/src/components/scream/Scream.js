@@ -60,12 +60,12 @@ class Scream extends Component {
             },
             user: {
                 authenticated,
-                credentials: { handle }
+                credentials: { handle, role }
               }
         } = this.props;
         
         const deleteButton =
-      authenticated && userHandle === handle ? (
+      authenticated && (userHandle === handle || role === 'ADMIN') ? (
         <DeleteScream screamId={screamId} />
       ) : null;
 

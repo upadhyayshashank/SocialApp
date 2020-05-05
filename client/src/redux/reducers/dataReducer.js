@@ -5,7 +5,7 @@ import {
 	SET_SCREAM,
 	LIKE_SCREAM,
 	UNLIKE_SCREAM,
-    LOADING_DATA,
+	LOADING_DATA,
 	DELETE_SCREAM,
 	POST_SCREAM,
 	SUBMIT_COMMENT,
@@ -30,8 +30,8 @@ export default function (state = initialState, action) {
 		case CLEAR_SCREAMS:
 			return {
 				...state,
-				screams: []
-			}
+				screams: [],
+			};
 		case SET_SCREAMS:
 			return {
 				...state,
@@ -39,16 +39,16 @@ export default function (state = initialState, action) {
 				loading: false,
 			};
 		case SET_SCREAMS_FOR_USER:
-				return {
-					...state,
-					screams: action.payload,
-					loading: false
-				}
-		  case SET_SCREAM:
-		    return {
-		      ...state,
-		      scream: action.payload
-		    };
+			return {
+				...state,
+				screams: action.payload,
+				loading: false,
+			};
+		case SET_SCREAM:
+			return {
+				...state,
+				scream: action.payload,
+			};
 		case LIKE_SCREAM:
 		case UNLIKE_SCREAM:
 			let index = state.screams.findIndex(
@@ -56,33 +56,42 @@ export default function (state = initialState, action) {
 			);
 			state.screams[index] = action.payload;
 			if (state.scream.screamId === action.payload.screamId) {
+				action.payload.comments = state.scream.comments;
 				state.scream = action.payload;
 			}
-			console.log(state.scream, state.screams)
+			console.log(state.scream, state.screams);
 			return {
 				...state,
 			};
-		   case DELETE_SCREAM:
-		     let deleteIndex = state.screams.findIndex(
-		       (scream) => scream.screamId === action.payload
-		     );
-		     state.screams.splice(deleteIndex, 1);
-		     return {
-		       ...state 
-		   };
-		  case POST_SCREAM:
-		    return {
-		      ...state,
-		      screams: [action.payload, ...state.screams]
-		    };
-		  case SUBMIT_COMMENT:
-		    return {
-		      ...state,
-		      scream: {
-		        ...state.scream,
-		        comments: [action.payload, ...state.scream.comments] 
-		      }
-		    };
+		case DELETE_SCREAM:
+			let deleteIndex = state.screams.findIndex(
+				(scream) => scream.screamId === action.payload
+			);
+			state.screams.splice(deleteIndex, 1);
+			return {
+				...state,
+			};
+		case POST_SCREAM:
+			return {
+				...state,
+				screams: [action.payload, ...state.screams],
+			};
+		case SUBMIT_COMMENT:
+			// let commentedScream = state.screams.findIndex(
+			// 	(scream) => scream.screamId === state.scream.screamId
+			// );
+			// state.screams[commentedScream].commentCount = [
+			// 	action.payload,
+			// 	...state.scream.comments,
+			// ].length;
+			return {
+				...state,
+				scream: {
+					...state.scream,
+					comments: [action.payload, ...state.scream.comments],
+					commentCount: [action.payload, ...state.scream.comments].length,
+				},
+			};
 		default:
 			return state;
 	}
